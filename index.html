@@ -1,0 +1,55 @@
+---
+layout: default
+title: Home
+---
+<body class="is-preload">
+	<!-- Banner -->
+	<section id="banner">
+		<div class="content">
+			<header>
+				<h1>Hi, I’m Waruna Wickramasingha <br/>
+				</h1>
+				<p>| Software Engineer | Data Science AI/ML enthusiast | Father | 
+					<img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg" alt="Sri Lanka" style="width:20px; height:auto; vertical-align:middle;"> 
+					<img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width:20px; height:auto; vertical-align:middle;">
+				</p>
+			</header>
+			<p class="justify">
+				I warmly welcome you to my website. I’m a software engineer from Sri Lanka, currently living in the United Kingdom. I have over a decade of experience designing and 
+				developing scalable, high-performance, mission-critical, fault-tolerant, and distributed systems.  My work experience spans multiple domains, including scientific computing, 
+				artificial intelligence, agentic AI, capital markets, cloud computing, banking, medical systems, and telecommunications, each with its own constraints, risks, and trade-offs. 
+				</br> </br>	
+				This website is a collection of technical tutorials and articles written by me that I believe are worth sharing with others. They are inspired by some of the most valuable 
+				lessons I’ve learned throughout my technical career, which spans years of building real-world systems.
+			</p>
+			<ul class="actions">
+				<li><a href="https://www.linkedin.com/in/waruna-priyankara-wickramasingha/" class="button big primary fit">linkedin </a></li>
+			</ul>
+		</div>
+		<span class="image object">
+			<img src="images/me3.jpg" alt="" />
+		</span>
+	</section>
+
+	<!-- Section -->
+	<section>
+		<header class="major">
+			<h2>Recent Posts</h2>
+		</header>
+		<section>
+			<div class="posts">
+				{% for post in site.posts limit:3 %}
+				<article>
+				<a href="{{ post.url | relative_url }}" class="image">
+					<img src="{{ '/images/pic07.jpg' | relative_url }}" alt="" />
+				</a>
+				<p>{{ post.title }}</p>
+				</article>
+				{% endfor %}
+			</div>
+			<ul class="actions">
+				<li><a href="{{ '/blog/' | relative_url }}" class="button">More</a></li>
+			</ul>
+		</section>
+	</section>
+</body>

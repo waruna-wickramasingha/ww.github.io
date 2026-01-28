@@ -1,0 +1,79 @@
+<!-- Sidebar -->
+<div id="sidebar">
+  <div class="inner">
+
+    <!-- Search -->
+    <section id="search" class="alt">
+      <form method="get" action="{{ '/search/' | relative_url }}">
+        <input type="text" name="q" placeholder="Search" />
+      </form>
+    </section>
+
+    <!-- Menu -->
+    <nav id="menu">
+      <header class="major">
+        <h2>Menu</h2>
+      </header>
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Homepage</a></li>
+        <li><a href="{{ '/education/' | relative_url }}">Education</a></li>
+        <li><a href="{{ '/workexperience/' | relative_url }}">Work Experience</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+        <li>
+          <span class="opener">More</span>
+          <ul>
+            <li><a href="#">Lorem Dolor</a></li>
+            <li><a href="#">Ipsum Adipiscing</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Recent posts -->
+    <section>
+      <header class="major">
+        <h2>Recent posts</h2>
+      </header>
+      <div class="mini-posts">
+        {% for post in site.posts limit:3 %}
+        <article>
+          <a href="{{ post.url | relative_url }}" class="image">
+            <img src="{{ '/images/pic07.jpg' | relative_url }}" alt="" />
+          </a>
+          <p>{{ post.title }}</p>
+        </article>
+        {% endfor %}
+      </div>
+      <ul class="actions">
+        <li><a href="{{ '/blog/' | relative_url }}" class="button">More</a></li>
+      </ul>
+    </section>
+
+    <!-- Get in touch -->
+    <section>
+      <header class="major">
+        <h2>Get in touch</h2>
+      </header>
+      <p>
+        Software Engineer · UK<br />
+        Writing about Software Development, Data Science, AI, ML, Agentic AI.
+      </p>
+      <ul class="contact">
+        <li class="icon solid fa-envelope">
+          <a href="jap.waruna@gmail.com">jap.waruna@gmail.com</a>
+        </li>
+        <li class="icon solid fa-home">      
+          United Kingdom
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="copyright">
+        &copy; {{ site.time | date: "%Y" }} Waruna Wickramasingha.
+        Design: <a href="https://html5up.net">HTML5 UP</a>.
+      </p>
+    </footer>
+  </div>
+</div>
