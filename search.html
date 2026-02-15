@@ -1,0 +1,38 @@
+---
+layout: default
+title: Search
+---
+
+<section>
+  <header class="main">
+    <h1>Search</h1>
+  </header>
+
+  <input type="text" id="search-input" placeholder="Type to search…" />
+  <ul id="results-container"></ul>
+</section>
+
+<!-- Load the search library -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+  const input = document.getElementById('search-input');
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+
+  // Initialize the search engine AFTER library is loaded
+  SimpleJekyllSearch({
+    searchInput: input,
+    resultsContainer: document.getElementById('results-container'),
+    json: {{ "/search.json" | relative_url | jsonify }},
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10
+  });
+
+  // If query present, pre-fill and trigger search
+  if (q) {
+    input.value = q;
+    input.dispatchEvent(new Event('input'));
+  }
+</script>

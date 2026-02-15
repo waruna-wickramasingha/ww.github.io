@@ -27,14 +27,39 @@
 						</ul>
 					</header>
 					
-					<article class="post">
-  <h1>Why I Built This Site</h1>
-  <p class="meta">January 25, 2026</p>
-  <p>This is written in <strong>Markdown</strong>.</p>
+					<section>
+  <header class="main">
+    <h1>Search</h1>
+  </header>
 
-<p>Code blocks, images, everything works.</p>
+  <input type="text" id="search-input" placeholder="Type to search…" />
+  <ul id="results-container"></ul>
+</section>
 
-</article>
+<!-- Load the search library -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+  const input = document.getElementById('search-input');
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+
+  // Initialize the search engine AFTER library is loaded
+  SimpleJekyllSearch({
+    searchInput: input,
+    resultsContainer: document.getElementById('results-container'),
+    json: "/search.json",
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10
+  });
+
+  // If query present, pre-fill and trigger search
+  if (q) {
+    input.value = q;
+    input.dispatchEvent(new Event('input'));
+  }
+</script>
 
 
 				</div>
@@ -45,11 +70,11 @@
   <div class="inner">
 
     <!-- Search -->
-    <section id="search" class="alt">
+    <!-- <section id="search" class="alt">
       <form method="get" action="/search/">
         <input type="text" name="q" placeholder="Search" />
       </form>
-    </section>
+    </section> -->
 
     <!-- Menu -->
     <nav id="menu">
@@ -61,13 +86,13 @@
         <li><a href="/education/">Education</a></li>
         <li><a href="/workexperience/">Work Experience</a></li>
         <li><a href="/blog/">Blog</a></li>
-        <li>
+        <!-- <li>
           <span class="opener">More</span>
           <ul>
             <li><a href="#">Lorem Dolor</a></li>
             <li><a href="#">Ipsum Adipiscing</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </nav>
 
@@ -79,24 +104,10 @@
       <div class="mini-posts">
         
         <article>
-          <a href="/blog/third-post/" class="image">
-            <img src="/images/pic07.jpg" alt="" />
+          <a href="/blog/lru_cache/" class="image">
+            <img src="/images/lru_cache5.jpg" alt="" />
           </a>
-          <p>Why I work at software</p>
-        </article>
-        
-        <article>
-          <a href="/blog/second-post/" class="image">
-            <img src="/images/pic07.jpg" alt="" />
-          </a>
-          <p>Why I use AU</p>
-        </article>
-        
-        <article>
-          <a href="/blog/first-post/" class="image">
-            <img src="/images/pic07.jpg" alt="" />
-          </a>
-          <p>Why I Built This Site</p>
+          <p>What is Python's lru_cache and when to use it?</p>
         </article>
         
       </div>
@@ -137,7 +148,6 @@
 
 		</div>
 
-		<!-- Scripts -->
 		<script src="/assets/js/jquery.min.js"></script>
 		<script src="/assets/js/browser.min.js"></script>
 		<script src="/assets/js/breakpoints.min.js"></script>
