@@ -1,14 +1,6 @@
 <!-- Sidebar -->
 <div id="sidebar">
   <div class="inner">
-
-    <!-- Search -->
-    <!-- <section id="search" class="alt">
-      <form method="get" action="{{ '/search/' | relative_url }}">
-        <input type="text" name="q" placeholder="Search" />
-      </form>
-    </section> -->
-
     <!-- Menu -->
     <nav id="menu">
       <header class="major">
@@ -16,16 +8,9 @@
       </header>
       <ul>
         <li><a href="{{ '/' | relative_url }}">Homepage</a></li>
-        <li><a href="{{ '/education/' | relative_url }}">Education</a></li>
+        <li><a href="{{ '/education/' | relative_url }}">Education and Certifications</a></li>
         <li><a href="{{ '/workexperience/' | relative_url }}">Work Experience</a></li>
         <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <!-- <li>
-          <span class="opener">More</span>
-          <ul>
-            <li><a href="#">Lorem Dolor</a></li>
-            <li><a href="#">Ipsum Adipiscing</a></li>
-          </ul>
-        </li> -->
       </ul>
     </nav>
 
@@ -38,7 +23,7 @@
         {% for post in site.posts limit:3 %}
         <article>
           <a href="{{ post.url | relative_url }}" class="image">
-            <img src="{{ '/images/lru_cache5.jpg' | relative_url }}" alt="" />
+            <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" />
           </a>
           <p>{{ post.title }}</p>
         </article>
