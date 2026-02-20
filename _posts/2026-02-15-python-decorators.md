@@ -303,4 +303,4 @@ In Test frameworks like [pytest](https://docs.pytest.org/en/stable/) or [unittes
 - @pytest.mark.xfail
 
 ### Thank you! 
-This marks the end of this blog post, and I hope you have learned something new out from this blog post and be more confident in using and creating your own decorators in your Python projects!! I wish you all the very best and Happy coding! 
+This marks the end of this blog post, and I hope you have learned something new out from this blog post and be more confident in using and creating your own decorators in your Python projects!! I wish you all the very best and Happy coding!
